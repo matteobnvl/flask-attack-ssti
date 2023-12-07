@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injection SSTI</title>
+</head>
+<body>
+    {% if context.user %}
+        <h1>Welcome, {{ context.user }}</h1>
+    {% else %}
+        <p>
+            Rentrer votre nom dans le formulaire !
+        </p>
+        <form action="/" method="get">
+            <label for="name">Votre nom</label>
+            <input type="text" name="name" id="name">
+            <button>Valider</button>
+        </form>
+    {% endif %}
+</body>
+</html>
